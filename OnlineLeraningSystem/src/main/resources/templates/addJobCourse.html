@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Online Learning System</title>
+</head>
+<body>
+<section>
+	<h1> Add New  job Courses</h1>
+
+<!-- <form  method="post" th:action="@{/addJobCourses}" th:object="${jobOriented}"  enctype="multipart/form-data" > --> 
+   <form action="#" th:object="${jobOriented}" method="post" th:action="@{/user/addJobCourses}" class="mt-2">
+   
+   
+   
+   
+    	<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Head Name:</p>
+					<!-- <input type="text" th:field="heading" class="form-control" placeholder="Head Name"> -->
+					<input type="text" id="heading" name="heading" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Type of course:</p>
+<!-- 					<input type="text" th:field="typeOfProgram" class="form-control" placeholder="Duration"> -->
+					<input type="text" id="typeOfProgram" name="typeOfProgram" placeholder="Enter" class="form-control"/>
+				
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Type of certification:</p>
+<!-- 					<input type="text" th:field="typeOfCertificate" class="form-control" placeholder="Mode"> -->
+					 <input type="text" id="typeOfCertificate" name="typeOfCertificate" placeholder="Enter" class="form-control"/>
+					
+				</div>
+			</div>
+				<input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+					
+			
+</form>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<br>
+    <div align="center">
+    <table border="10" cellpadding="25">
+        <thead>
+            <tr>
+       <th>Id</th>
+									
+										<th>Program Name</th>
+									
+									<th>Type Of Program</th>
+								      
+								      <th>Program Certification</th>
+					
+					<th>Edit</th>
+					
+									<th>Delete</th>
+								
+								
+	<tbody>
+		<tr th:each="job1: ${job1Orienteds}">
+		<td th:text="${job1.jobId}"></td>
+										<td th:text="${job1.heading}"></td>
+										<td th:text="${job1.typeOfProgram}"></td>
+										<td th:text="${job1.typeOfCertificate}"></td>
+										
+										<td><a th:href="@{/user/editttt/{jobId}(jobId=${job1.jobId})}" class="button">Edit</a></td>
+										<td><a th:href="@{/user/deletett/{id}(id=${job1.jobId})}" class="button">Delete</a></td>
+										
+										
+										
+										
+										
+												
+
+									
+									</tr>
+								</tbody>
+							</table>
+						
+</div>
+ 
+</section>
+</body>
+</html>

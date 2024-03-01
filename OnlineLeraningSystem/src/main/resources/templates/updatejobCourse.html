@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})"> 
+<head>
+<meta charset="UTF-8">
+<title>Online learning sysytem</title>
+</head>
+<body>
+<section> 
+	<div align="center">
+        <h1>Update Job Course Detail</h1>
+        <br />
+       <!--  <form th:action="@{/addJobCourses}" th:object="${jobOriented}" enctype="multipart/form-data" method="POST"> -->
+   <form action="#"  th:object="${jobOriented}"
+		enctype="multipart/form-data" method="post"
+		th:action="@{/user/addJobCourses}"
+		class="mt-2">
+   <div class="form-group row">
+				
+				<div class="col-8">
+				<input type="hidden" th:value="${jobOriented.jobId}" name="jobId" />
+				<!-- <p>job Id:</p> -->
+<!-- 					<input type="hidden" th:field="*{jobId}" class="form-control" readonly="readonly" placeholder="jobId "> -->
+<!-- 					<input type="text" id="heading" name="heading" placeholder="Enter" class="form-control"/> -->
+				</div>
+			</div>
+   
+   
+   <div class="form-group row" >
+		<div class="form-group row">
+			<div class="col-8">
+				<p>Course Head:</p>
+<!-- 					<input type="text" th:field="*{heading}" class="form-control" placeholder="Course Name"> -->
+				<input type="text" id="heading" name="heading" placeholder="Course Name" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Type Of Program:</p>
+<!-- 					<input type="text" th:field="*{typeOfProgram}" class="form-control" placeholder="Duration"> -->
+				<input type="text" id="typeOfProgram" name="typeOfProgram" placeholder="Duration" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Type Of Certificate:</p>
+<!-- 					<input type="text" th:field="*{typeOfCertificate}" class="form-control" placeholder="type Of Certificate"> -->
+					<input type="text" id="typeOfCertificate" name="typeOfCertificate" placeholder="typeOfCertificate" class="form-control"/>
+				</div>
+			</div>
+			
+	</div>
+  
+
+			
+					<input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+					
+			
+</form>
+    </div>
+ 	
+</section>
+</body>
+</html>

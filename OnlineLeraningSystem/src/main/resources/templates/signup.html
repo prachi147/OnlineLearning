@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>OLS-SignUp</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="my-card mt-1">
+						
+<!--						<div class="alert" th:classappend="${session.message.type}" role="alert" th:if="${session.message}">-->
+<!--  						<p th:text="${session.message.content}"></p>-->
+  						
+<!--  						<th:block th:text="${#session.removeAttribute('message')}"></th:block>-->
+<!--						</div>-->
+						
+						<h1 class="text-center">Register Here !! </h1>
+						
+						
+						<form novalidate th:action="@{/do_register}" method="post" th:object="${user}">
+							
+							<div class="form-group">
+								
+                                                                                                                                                                                    
+	    						<label for="first_field">First Name</label>
+	    						<input
+	    						name="firstName" type="text" 
+	    						class="form-control"
+	    						th:classappend="${#fields.hasErrors('firstName') ? 'is-invalid':''}" 
+	    						th:value="${user.firstName}"
+	    						id="first_field"
+	    						 aria-describedby="emailHelp"
+	    						  placeholder="Enter Your first name"
+	    						 >
+	    						 
+	    						 <div class="invalid-feedback" th:each="e : ${#fields.errors('firstName')}" th:text="${e}">
+									 
+								 </div>
+	    						
+	 						</div>
+	  						
+	  						
+	  						<div class="form-group">
+	    						<label for="second_field">Last Name</label>
+	    						<input name="lastName" 
+	    						type="text" 
+	    						class="form-control"
+	    						th:classappend="${#fields.hasErrors('lastName') ? 'is-invalid':''}"  
+	    						id="second_field"
+	    						 aria-describedby="emailHelp"
+	    						  placeholder="Enter Your last name" >
+	    						  
+	    						  <div class="invalid-feedback" th:each="e : ${#fields.errors('lastName')}" th:text="${e}">
+									 
+								 </div>
+	  						</div>
+	  						
+	  						<div class="form-group">
+	    						<label for="email_field">Email</label>
+	    						<input name="email"
+	    						 type="email" 
+	    						class="form-control" 
+	    						th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}" 
+	    						id="email_field"
+	    						 aria-describedby="emailHelp"
+	    						  placeholder="Enter Your Email"
+	    						  >
+	    						  <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}">
+									 
+								 </div>
+	  						</div>
+	  						
+	  						<div class="form-group">
+	    						<label for="phone_field">Phone</label>
+	    						<input name="phone" 
+	    						type="number" 
+	    						class="form-control" 
+	    						th:classappend="${#fields.hasErrors('phone') ? 'is-invalid':''}" 
+	    						id="phone_field"
+	    						 aria-describedby="emailHelp"
+	    						  placeholder="Enter Your phone number" 
+	    						  >
+	    						  <div class="invalid-feedback" th:each="e : ${#fields.errors('phone')}" th:text="${e}">
+									 
+								 </div>
+	  						</div>
+	  						
+	  						<div class="form-group">
+	    						<label for="password_field">Password</label>
+	    						<input name="password" 
+	    						type="password" 
+	    						class="form-control"
+	    						 
+	    						id="password_field"
+	    						 aria-describedby="emailHelp"
+	    						  placeholder="Enter Your password">
+	    						  
+	    						 
+									 
+								 </div>
+								 
+								 <div class="container text-center">
+								  <button type="submit" class="btn bg-priColor text-white">
+								  Submit
+	  						</button>
+							  
+							  <button type="reset" class="btn bg-warning text-white">
+								  Reset
+							  </button>
+							  </div>
+	  						</div>
+	  						
+	  						<div id="register-link" class="text-right">
+                                <a href="/signin/" class="text-info">Login here</a>
+                            </div>
+	  						
+							  
+							  
+							  
+							  
+							  <!--Model Popup starts-->
+								
+								<!--Model Popup ends-->
+
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		  <div class="cour-slider">
+            <div class="container">
+                <div class="cour-content">
+                    <div class="cour-heading">
+                        Upskill Your Organization
+                    </div>
+                    <div class="cour-para">
+                        with the World's #1 Online _Offline Both
+                    </div>
+                    <form th:action="@{/allCourses}">
+                    <div class="slider-btn">
+                        <button class="explore-program-1">Explore Programs</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="c-program" >
+            <div class="container" th:each="courses1: ${courses1}">
+         <div class="c-title">
+                        <a th:text="${courses1.courseName}"></a>
+                    </div>
+                    </div>
+                    </div>
+
+        <div class="c-program" >
+            <div class="container" th:each="topic: ${topic}">
+                <div class="c-content"  >
+                    
+                    <div class="c-heading" >
+                       <a th:text="${topic.topicName}"></a> 
+                    </div>
+                    <div class="c-para"  >
+                      <a th:text="${topic.description}"></a>      <!-- It can, for example, be used to write the code for operating systems, much more complex programs and everything in between. Its simplicity and flexibility are largely because it can function independently of machines, which has lent itself to becoming one of the foundational programming languages in the industry. -->
+                    </div>
+                    
+                
+            </div>
+        </div>
+     </div>
+     
+<!--     work krna hai button pr-->
+       <div class="more-button">
+         <button class="view-details" data-toggle="modal" data-target="#myModal">Enquiry</button>
+          </div>
+	</section>
+
+</body>
+</html>

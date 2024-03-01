@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div align="center">
+        <h1>Update Course Detail</h1>
+        <br />
+        <form action="#" th:object="${courses}" enctype="multipart/form-data" method="post" th:action="@{/user/addCourses}"
+		class="mt-2">
+       
+   
+   <div class="form-group row" >
+				
+				<div class="col-8">
+				
+					
+                                        <label >Select Course Type:</label>
+                                        <select   id="jobId" name="jobId" class="field-select"><!-- th:field="*{jobId}" --> 
+                                      
+                                        <option th:each="job: ${jobOrienteds}" th:value=" ${job.jobId}" th:text=" ${job.heading}"></option>
+                                        </select>
+                                 
+				</div>
+			</div>
+   
+   
+    	<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Course Name:</p>
+<!-- 					<input type="text" th:field="*{courseName}" class="form-control" placeholder="Course Name"> -->
+					<input type="text" id="courseName" name="courseName" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Duration:</p>
+<!-- 					<input type="text" th:field="*{courseDuration}" class="form-control" placeholder="Duration"> -->
+				<input type="text" id="courseDuration" name="courseDuration" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Mode:</p>
+<!-- 					<input type="text" th:field="*{modes}" class="form-control" placeholder="Mode"> -->
+					<input type="text" id="modes" name="modes" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+			
+				<div class="form-group row">
+				
+				<div class="col-8">
+     
+    
+
+
+			
+					<input type="Submit"   class="btn btn-info btn-lg" name="save" value="Submit" >
+					
+			
+</form>
+    </div>
+ 
+	</section>
+</body>
+</html>

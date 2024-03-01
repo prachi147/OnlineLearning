@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Update Contact Form</title>
+</head>
+<body>
+<section>
+	<div align="center">
+        <h1>Update Contact Detail</h1>
+        <br />
+        <form th:action="@{/savee}" th:object="${contact}" enctype="multipart/form-data" method="POST">
+   
+      
+		<div class="form-group row">
+			<div class="col-8">
+				<p>Full Name:</p>
+					<input type="text" th:field="*{fullName}" class="form-control" placeholder="First Name">
+					  <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" style="color:red">Student Name error</span>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Email:</p>
+					<input type="text" th:field="*{email}" class="form-control" placeholder="Email">
+					<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red">Student Name error</span>
+				</div>
+			</div>
+
+          			
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Mobile no:</p>
+					<input type="text" th:field="*{phone}" class="form-control" placeholder="Mobile Number">
+					 <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" style="color:red">Student Name error</span>
+				</div>
+			</div>
+          
+          		
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Course Name:</p>
+					<input type="text" th:field="*{course}" class="form-control" placeholder="CourseName">
+					
+				</div>
+			</div>
+		
+			
+					<input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+				
+    </form>
+    </div>
+
+</section>
+</body>
+</html>

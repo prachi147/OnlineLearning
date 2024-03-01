@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="about-slider">
+            <div class="container">
+                
+                    <div class="ab-sl-heading">
+                        <p>Main Courses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+           <div class="certificate-courses" id="certi-course" >
+            <div class="container"  >
+                <div class="certi-content" >
+                    <div class="row" >
+                        <div class="col-lg-12" >
+                            <div class="certi-heading">
+                                Certification Courses
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="certi-para">
+                                Get certified by global certification bodies and deepen your expertise
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12" th:each="courses: ${courses}" >
+                            <div class="card certi-card" >
+                                <div class="card-body certi-body" >
+                                    <div class="row" >
+                                        <div class="col-lg-12"  >
+                                            <div class="certi-img"  >
+                                                <img th:src="${courses.courseImg}" >
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="certi-card-heading" th:text="${courses.courseName}">
+                                                    C Language
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="time-duration">
+                                                    <span><b>Course Duration  :</b></span>
+                                                    <a th:text="${courses.courseDuration}" >30 Day's</a>
+                                                </div>
+                                            </div>    
+                                            <div class="col-lg-12">
+                                                <div class="time-duration">
+                                                    <span><b>Crash  :</b></span>
+                                                    <a>15 Day's</a>
+                                                </div>
+                                            </div>    
+                                            <div class="col-lg-12">
+                                                <div class="time-duration">
+                                                    <span><b>Batch Mode   :</b></span>
+                                                    <a th:text="${courses.modes}">Offline/Online</a>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="formal-btn">
+                                            <div class="row">
+                                                <div class="col-lg-6" >
+                                                    <div class="service-arrow" >
+                                                        <a th:href="@{/topic(coursesId = ${courses.coursesId})}" >More Details</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="more-button">
+                                                        <button class="view-details" data-toggle="modal" data-target="#myModal">Enquiry</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                     </div>
+            </div>
+        </div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Contact Form</title>
+</head>
+<body>
+
+<section>
+	<h1>Inquiry List</h1>
+   
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+             <th>Id</th>
+               <th>Full Name</th>
+               <th>Course Name</th>
+				<th>Email</th>
+				<th>Mobile No.</th>
+				<th>Edit</th>
+			    <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="contact1: ${contact1}">
+            <td th:text="${contact1.contactId}">Id</td>
+										
+										<td th:text="${contact1.fullName}">Full Name</td>
+										<td th:text="${contact1.email}">Email</td>
+										<td th:text="${contact1.phone}">Number</td>
+										<td th:text="${contact1.course}">Course</td>
+										
+											
+										<td>
+											<a th:href="@{/edi/{id}(id=${contact1.contactId})}">Edit</a>
+											</td>	
+											
+											<td>
+											<a th:href="@{/deletee/{id}(id=${contact1.contactId})}">Delete</a>
+											</td>
+									</tr>
+        </tbody>
+    </table>
+</div> 
+	<div sec:authorize="isAuthenticated()">
+        <form id="logoutForm" method="POST" th:action="@{/logout}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
+
+        <span sec:authentication="name"></span>  <input type="button" onclick="document.forms['logoutForm'].submit()" value="Logout" class="button"></input>
+    </div>
+</section>
+</body>
+</html>

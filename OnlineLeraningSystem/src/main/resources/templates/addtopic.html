@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<h1>Topics Detail</h1>
+ 
+ 
+ <form action="#" th:object="${topic}" method="post" th:action="@{/addTopic}"  enctype="multipart/form-data" class="mt-2">
+<!-- <form th:action="@{/addCourses}" th:object="${courses}" method="POST"> -->
+   
+   <div class="form-group row" >
+				
+				<div class="col-8">
+				
+					
+                                        <label >Select Course Type:</label>
+                                        <select  id="coursesId" name="coursesId"class="field-select"> <!-- th:field="*{jobId}" --> 
+                                      
+                                        <option th:each="courses: ${courses}" th:value=" ${courses.coursesId}" th:text=" ${courses.courseName}"></option>
+                                        </select>
+                                 
+				</div>
+			</div>
+   
+   
+    	<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Topic Name:</p>
+<!-- 					<input type="text" th:field="*{courseName}" class="form-control" placeholder="Course Name"> -->
+					<input type="text" id="topicName" name="topicName" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Description:</p>
+<!-- 					<input type="text" th:field="*{courseDuration}" class="form-control" placeholder="Duration"> -->
+						<input type="text" id="description" name="description" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+		<input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+					
+			
+</form>
+<br>
+    <div align="center">
+    <table border="10" cellpadding="10">
+        <thead>
+            <tr>
+       <th>Id</th>
+									
+										<th>Topic Name</th>
+									
+									<th>Topic Description</th>
+								      
+									<th>Update</th>
+									
+									<th>Delete</th>
+								
+								
+	<tbody>
+		<tr th:each="topic1: ${topic1}">
+		<td th:text="${topic1.topicId}"></td>
+										<td th:text="${topic1.topicName}"></td>
+										<td th:text="${topic1.description}"></td>
+										
+										<td><a th:href="@{/edittt/{topicId}(topicId=${topic1.topicId})}" class="button">Edit</a></td>
+										
+										<td><a th:href="@{/delet/{id}(id=${topic1.topicId})}" class="button">Delete</a></td>
+										
+										
+												
+
+									
+									</tr>
+								</tbody>
+							</table>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<h1> Add New Courses</h1>
+<!-- <form action="#" th:object="${courses}" method="post" th:action="@{/addCourses}" class="mt-2"> -->
+<form action="#" th:object="${courses}" method="post" th:action="@{/addCourses}"  enctype="multipart/form-data" class="mt-2">
+<!-- <form th:action="@{/addCourses}" th:object="${courses}" method="POST"> -->
+   
+   <div class="form-group row" >
+				
+				<div class="col-8">
+				
+					
+                                        <label >Select Course Type:</label>
+                                        <select  id="jobId" name="jobId"class="field-select"> <!-- th:field="*{jobId}" --> 
+                                      
+                                        <option th:each="job: ${jobOrienteds}" th:value=" ${job.jobId}" th:text=" ${job.heading}"></option>
+                                        </select>
+                                 
+				</div>
+			</div>
+   
+   
+    	<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Course Name:</p>
+<!-- 					<input type="text" th:field="*{courseName}" class="form-control" placeholder="Course Name"> -->
+					<input type="text" id="courseName" name="courseName" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Duration:</p>
+<!-- 					<input type="text" th:field="*{courseDuration}" class="form-control" placeholder="Duration"> -->
+						<input type="text" id="courseDuration" name="courseDuration" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+					<div class="form-group row">
+				
+				<div class="col-8">
+				<p>Mode:</p>
+<!-- 					<input type="text" th:field="*{modes}" class="form-control" placeholder="Mode"> -->
+					<input type="text" id="modes" name="modes" placeholder="Enter" class="form-control"/>
+				</div>
+			</div>
+			
+				
+
+  
+
+			
+					<input type="Submit"  class="btn btn-info btn-lg" name="save" value="Submit" >
+					
+			
+</form>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<br>
+    <div align="center">
+    <table border="10" cellpadding="25">
+        <thead>
+            <tr>
+       <th>Id</th>
+									
+										<th>Course Name</th>
+									
+									<th>Duration Of Course</th>
+								      
+								      <th>mode</th>
+								      
+								      <th>Image</th>
+					
+									<th>Update</th>
+									
+									<th>Delete</th>
+								
+								
+	<tbody>
+		<tr th:each="courses1: ${courses1}">
+		<td th:text="${courses1.coursesId}"></td>
+										<td th:text="${courses1.courseName}"></td>
+										<td th:text="${courses1.courseDuration}"></td>
+										<td th:text="${courses1.modes}"></td>
+										
+										<td ><img th:src="${courses1.courseImg}"  width="100" height="80"></td> 
+											<!-- <td th:text="${courses1.status}"></td> -->
+										
+										<td><a th:href="@{/edit/{coursesId}(coursesId=${courses1.coursesId})}" class="button">Edit</a></td>
+										
+										<td><a th:href="@{/deletet/{id}(id=${courses1.coursesId})}" class="button">Delete</a></td>
+										
+										
+												
+
+									
+									</tr>
+								</tbody>
+							</table>
+						
+</div>
+	</section>
+</body>
+</html>

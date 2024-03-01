@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Online Learning System</title>
+</head>
+<body>
+
+<section>
+	
+	<div class="about-slider">
+            <div class="container">
+                <div class="ab-sl-content">
+                    <div class="ab-sl-heading">
+                        Job Oriented
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+             <div class="master-programs" id="mas-program">
+            <div class="container" >
+                <div class="master-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="master-heading">
+                                Job Oriented Program
+                            </div>
+                            <div class="master-para">
+                                Achieve Your Goals and Made Your Career in Big Industries
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-lg-4" th:each="job: ${jobOrienteds}">
+                            <div class="card master-card" >
+                                <div class="card-body master-body" >
+                                    <div class="row" >
+                                        <div class="col-lg-12">
+                                            <div class="card-header">
+                                                <img src="/images/web-logo.jpg" alt="card-logo" class="card-logo">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="card-heading" >
+                                                <!-- Full Stack Developer -->
+                                                <a th:text="${job.heading}"></a>
+                                            </div>
+                                        </div>
+                                         <div class="col-lg-12">
+                                            <div class="time-table">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <a>12 Months</a>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <i class="fas fa-book-reader"></i>
+                                                        <a class="time-course"  th:href="@{/courseByJob(jobId = ${job.jobId})}"> Content</a>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="card-para">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="paragraph">
+                                                            <i class="fas fa-check" th:text="${job.typeOfProgram}"></i>
+                                                            <!-- TST Solution JobAssist Program -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="paragraph">
+                                                            <i class="fas fa-check" th:text="${job.typeOfCertificate}"></i>
+                                                            <!-- Certificate of Full Stack Developer -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="master-btn">
+                                                            <div class="master-details">
+                                                                <a th:href="@{/courseByJob(jobId = ${job.jobId })}">More Details</a>
+                                                            </div>
+                                                            <div class="master-button">
+                                                                <button class="Enquery" data-toggle="modal" data-target="#myModal">Enquiry</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div> 
+                    
+                    
+</section>
+</body>
+</html>
